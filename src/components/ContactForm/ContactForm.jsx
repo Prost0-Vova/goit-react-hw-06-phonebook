@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { addContact } from 'redux/ContactsSlice';
 import {Form, Input, Button} from './ContactForm.styled'
-import Notiflix from 'notiflix';
+
 
 function ContactForm ({contacts}) {
 
@@ -13,24 +13,11 @@ function ContactForm ({contacts}) {
 
   const dispatch = useDispatch();
   
-  const isContactDuplicate = (name, phone) => {
-    return contacts.some(
-      contact => contact.name === name || contact.phone === phone
-    );
-  };
+  
 
  const  handleSubmit = (e) => {
   e.preventDefault();
-  const isDuplicateContact = isContactDuplicate(name, number);
-  if (isDuplicateContact) {
-    Notiflix.Notify.failure(
-      'Contact with the same name or phone number already exists!',
-      {
-        position: 'center-top',
-      }
-    );
-    return;
-  }
+  
 
   const newContact = { id: nanoid(), name, number };
   dispatch(addContact(newContact));
