@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+
 import { FilterLabel, FilterInput } from './Filter.styled';
 import React from 'react';
 import { getFilter } from 'redux/selectors';
