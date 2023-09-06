@@ -11,8 +11,8 @@ function ContactItem  ({ id, name, number })  {
   };
   return(
     <ListItem key={id}>
-    {name}
-     {number}
+      {name}: {number}
+      
     <Button onClick={() => removeContact(id)}>Delete</Button>
   </ListItem>
   )

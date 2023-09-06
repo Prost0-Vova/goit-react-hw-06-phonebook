@@ -15,15 +15,21 @@ function ContactForm () {
   const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
   
- 
+  const validateContact = (name, number) => {
+    return contacts.some(
+      contact => contact.name === name || contact.number === number
+    );
+  };
+
  const  handleSubmit = (e) => {
   e.preventDefault();
 
-  const addContact = (newContact) => {
-    if (contacts.some((contact) => contact.name === newContact.name)) {
-      alert(`${newContact.name} is already in contacts.`);
-      return;
-    }}
+ const isValidateContact = validateContact(name, number);
+
+  if (isValidateContact) {
+        alert(`${name} is already in contacts.`);
+     return;
+  }
   
 
   const newContact = { id: nanoid(), name, number };
