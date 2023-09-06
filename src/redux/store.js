@@ -4,7 +4,7 @@ import storage from 'redux-persist/lib/storage';
 import rootReducer from './reducer';
 
 const persistConfig = {
-  key: 'phonebook',
+  key: 'root',
   storage,
   blacklist: ['filter'],
 };
@@ -12,7 +12,7 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
-  reducer: persistedReducer,
+  reducer: persistedReducer, 
 });
 
 export const persistor = persistStore(store);
